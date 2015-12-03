@@ -1,11 +1,21 @@
 const formatJSON = string => JSON.stringify(JSON.parse(string), null, 2);
+const minifyJSON = string => {
+  try {
+    return JSON.stringify(JSON.parse(string));
+  } catch (e) {
+    return string;
+  }
+};
 
 window.onload = e => {
 
-  const input  = document.querySelector('#format-input');
-  const output = document.querySelector('#format-output');
+  const formatInput  = document.querySelector('#format-input');
+  const formatOutput = document.querySelector('#format-output');
+  const minifyInput  = document.querySelector('#minify-input');
+  const minifyOutput = document.querySelector('#minify-output');
 
-  input.addEventListener('input', e => output.value = formatJSON(input.value));
+  formatInput.addEventListener('input', e => formatOutput.value = formatJSON(formatInput.value));
+  minifyInput.addEventListener('input', e => minifyOutput.value = minifyJSON(minifyInput.value));
 
 };
 

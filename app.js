@@ -1,4 +1,11 @@
-const formatJSON = string => JSON.stringify(JSON.parse(string), null, 2);
+const formatJSON = string => {
+  try {
+    return JSON.stringify(JSON.parse(string), null, 2);
+  } catch (e) {
+    return string;
+  }
+};
+
 const minifyJSON = string => {
   try {
     return JSON.stringify(JSON.parse(string));
@@ -8,7 +15,6 @@ const minifyJSON = string => {
 };
 
 window.onload = e => {
-
   const formatInput  = document.querySelector('#format-input');
   const formatOutput = document.querySelector('#format-output');
   const minifyInput  = document.querySelector('#minify-input');
@@ -16,7 +22,6 @@ window.onload = e => {
 
   formatInput.addEventListener('input', e => formatOutput.value = formatJSON(formatInput.value));
   minifyInput.addEventListener('input', e => minifyOutput.value = minifyJSON(minifyInput.value));
-
 };
 
 if (navigator.serviceWorker) {

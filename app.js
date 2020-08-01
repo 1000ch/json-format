@@ -1,31 +1,27 @@
-const formatJSON = string => {
-  try {
-    return JSON.stringify(JSON.parse(string), null, 2);
-  } catch (e) {
-    return string;
-  }
-};
-
-const minifyJSON = string => {
-  try {
-    return JSON.stringify(JSON.parse(string));
-  } catch (e) {
-    return string;
-  }
-};
-
-window.onload = e => {
+window.onload = () => {
   const formatInput  = document.querySelector('#format-input');
   const formatOutput = document.querySelector('#format-output');
+  const formatError = document.querySelector('#format-error');
+
+  formatInput.addEventListener('input', () => {
+    try {
+      formatOutput.value = JSON.stringify(JSON.parse(formatInput.value), null, 2);
+      formatError.textContent = '';
+    } catch (error) {
+      formatError.textContent = error.message;
+    }
+  });
+
   const minifyInput  = document.querySelector('#minify-input');
   const minifyOutput = document.querySelector('#minify-output');
+  const minifyError = document.querySelector('#minify-error');
 
-  formatInput.addEventListener('input', e => formatOutput.value = formatJSON(formatInput.value));
-  minifyInput.addEventListener('input', e => minifyOutput.value = minifyJSON(minifyInput.value));
+  minifyInput.addEventListener('input', () => {
+    try {
+      minifyOutput.value = JSON.stringify(JSON.parse(minifyInput.value));
+      minifyError.textContent = '';
+    } catch (error) {
+      minifyError.textContent = error.message;
+    }
+  });
 };
-
-if (navigator.serviceWorker) {
-  navigator.serviceWorker.register('service-worker.js', {
-    scope: '/json-format/'
-  }).catch(error => console.error(error));
-}

@@ -1,4 +1,6 @@
-window.onload = () => {
+import { documentReady } from 'https://unpkg.com/html-ready';
+
+documentReady.then(() => {
   const formatInput  = document.querySelector('#format-input');
   const formatOutput = document.querySelector('#format-output');
   const formatError = document.querySelector('#format-error');
@@ -24,4 +26,4 @@ window.onload = () => {
       minifyError.textContent = error.message;
     }
   });
-};
+});

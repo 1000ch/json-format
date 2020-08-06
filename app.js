@@ -1,4 +1,4 @@
-import { documentReady } from 'https://unpkg.com/html-ready';
+import {documentReady} from 'https://unpkg.com/html-ready';
 
 documentReady.then(() => {
   const formatInput  = document.querySelector('#format-input');

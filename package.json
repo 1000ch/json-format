@@ -1,0 +1,32 @@
+{
+  "name": "json-format",
+  "private": true,
+  "description": "Format JSON.",
+  "homepage": "https://github.com/1000ch/json-format#readme",
+  "bugs": {
+    "url": "https://github.com/1000ch/json-format/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1000ch/json-format.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Shogo Sensui",
+    "email": "shogosensui@gmail.com",
+    "url": "https://github.com/1000ch"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "xo": {
+    "envs": [
+      "node",
+      "browser"
+    ],
+    "space": 2
+  },
+  "devDependencies": {
+    "xo": "^0.32.1"
+  }
+}

@@ -1,7 +1,7 @@
 import {documentReady} from 'https://unpkg.com/html-ready';
 
 documentReady.then(() => {
-  const formatInput  = document.querySelector('#format-input');
+  const formatInput = document.querySelector('#format-input');
   const formatOutput = document.querySelector('#format-output');
   const formatError = document.querySelector('#format-error');
 
@@ -14,7 +14,7 @@ documentReady.then(() => {
     }
   });
 
-  const minifyInput  = document.querySelector('#minify-input');
+  const minifyInput = document.querySelector('#minify-input');
   const minifyOutput = document.querySelector('#minify-output');
   const minifyError = document.querySelector('#minify-error');
 
